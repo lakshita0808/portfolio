@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&Display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply scroll-smooth;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply bg-primary text-white font-[Poppins];
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold;
+}
+
+/* Custom utility classes */
+.glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/20;
+}
+
+.btn-primary {
+  @apply bg-accent hover:bg-accent-light text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105;
+}
+
+.btn-secondary {
+  @apply border border-accent text-accent px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-accent hover:text-white;
+}
+
+.section-title {
+  @apply text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent-light to-accent-light;
+}
+
+.gradient-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-light;
+}
+
+.card-shadow {
+  @apply shadow-lg hover:shadow-2xl transition-shadow duration-300;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
