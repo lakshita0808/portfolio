@@ -15,7 +15,7 @@ app = FastAPI(title="AI Portfolio API", description="Personal portfolio with AI 
 
 origins = [
     "http://localhost:5173",
-    "https://your-frontend-url.vercel.app",  
+    "https://https://portfolio-2d1q.onrender.com",  
 ]
 
 # CORS Configuration

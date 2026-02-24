@@ -4,13 +4,13 @@ A modern, professional portfolio website with an integrated AI chat assistant th
 
 ## Features
 
-✨ **Core Features:**
-- 🎨 Beautiful, modern portfolio design (inspired by Sarvadhi template)
-- 🤖 AI-powered resume assistant using OpenRouter
-- 💬 Real-time chat interface with message history
-- 📱 Fully responsive design (mobile, tablet, desktop)
-- ⚡ Fast and smooth animations with Framer Motion
-- 🎯 Sections: Hero, About, Projects, Skills, Experience, Chat, Contact
+**Core Features:**
+- Beautiful, modern portfolio design
+- AI-powered resume assistant using OpenRouter
+- Real-time chat interface with message history
+- Fully responsive design (mobile, tablet, desktop)
+- Fast and smooth animations with Framer Motion
+- Sections: Hero, About, Projects, Skills, Experience, Chat, Contact
 
 ## Tech Stack
 
@@ -28,7 +28,3 @@ A modern, professional portfolio website with an integrated AI chat assistant th
 - **ORM:** SQLAlchemy
 - **AI API:** OpenRouter
 - **HTTP Client:** httpx
-
-### Additional Tools
-- **Environment:** python-dotenv
-- **API Documentation:** FastAPI Swagger UI
