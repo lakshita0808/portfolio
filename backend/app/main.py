@@ -20,14 +20,22 @@ origins = [
     "https://*.vercel.app",
 ]
 
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+#     allow_headers=["Content-Type", "Authorization"],
+#     expose_headers=["*"],
+#     max_age=600,
+# )
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allow_headers=["Content-Type", "Authorization"],
-    expose_headers=["*"],
-    max_age=600,
+    allow_origins=["*"],   # allow all origins (safe for portfolio)
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 def get_db():
@@ -190,8 +198,8 @@ async def get_resume_text(db: Session = Depends(get_db)):
         return {"content": "No resume found in database"}
     return {"content": resume.content}
 
-@app.options("/{full_path:path}", tags=["CORS"])
-async def preflight_handler(full_path: str):
-    """Handle CORS preflight requests"""
-    return {}
+# @app.options("/{full_path:path}", tags=["CORS"])
+# async def preflight_handler(full_path: str):
+#     """Handle CORS preflight requests"""
+#     return {}
 
