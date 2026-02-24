@@ -15,13 +15,12 @@ app = FastAPI(title="AI Portfolio API", description="Personal portfolio with AI 
 
 origins = [
     "http://localhost:5173",
-    "https://https://portfolio-2d1q.onrender.com",  
+    "https://portfolio-git-main-lakshita-jawandhiyas-projects.vercel.app",
 ]
 
-# CORS Configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change to specific domains in production
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
