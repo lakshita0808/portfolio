@@ -13,6 +13,11 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="AI Portfolio API", description="Personal portfolio with AI chat assistant")
 
+origins = [
+    "http://localhost:5173",
+    "https://your-frontend-url.vercel.app",  
+]
+
 # CORS Configuration
 app.add_middleware(
     CORSMiddleware,
