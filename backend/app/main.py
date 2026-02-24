@@ -15,15 +15,19 @@ app = FastAPI(title="AI Portfolio API", description="Personal portfolio with AI 
 
 origins = [
     "http://localhost:5173",
+    "http://localhost:3000",
     "https://portfolio-git-main-lakshita-jawandhiyas-projects.vercel.app",
+    "https://*.vercel.app",
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"],
+    expose_headers=["*"],
+    max_age=600,
 )
 
 def get_db():
@@ -171,8 +175,11 @@ async def get_portfolio():
 @app.post("/chat", response_model=ChatResponse, tags=["Chat"])
 async def chat(request: ChatRequest, db: Session = Depends(get_db)):
     """Chat with AI resume assistant"""
-    reply = await generate_reply(db, request.message)
-    return ChatResponse(reply=reply)
+    try:
+        reply = await generate_reply(db, request.message)
+        return ChatResponse(reply=reply)
+    except Exception as e:
+        return ChatResponse(reply="I encountered an error processing your request. Please try again later.")
 
 @app.get("/resume-text", tags=["Portfolio"])
 async def get_resume_text(db: Session = Depends(get_db)):
